@@ -1,1 +1,3 @@
-# 024_2025-introduction_in_routing-k3323-belous_i_r
+# 2024_2025-introduction_in_routing-k3323-belous_i_r
+
+Лабораторные работы по дисциплине Введение в маршрутизацию на предприятии. Белоус Я.Р. К3323
