@@ -1,0 +1,44 @@
+name: enterprise-lab
+mgmt:
+  network: mgmt
+  ipv4-subnet: 192.168.100.0/24
+
+topology:
+  nodes:
+    R01.TEST:
+      kind: vr-mikrotik_ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 192.168.100.11
+      startup-config: /home/y0rikk/Desktop/lab1/configs/Router1.rsc
+    SW01.L3.01.TEST:
+      kind: vr-mikrotik_ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 192.168.100.22
+      startup-config: /home/y0rikk/Desktop/lab1/configs/sw1.rsc
+    SW02.L3.01.TEST:
+      kind: vr-mikrotik_ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 192.168.100.33
+      startup-config: /home/y0rikk/Desktop/lab1/configs/sw2_1.rsc
+    SW02.L3.02.TEST:
+      kind: vr-mikrotik_ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 192.168.100.44
+      startup-config: /home/y0rikk/Desktop/lab1/configs/sw2_2.rsc
+    PC1:
+      kind: linux
+      image: alpine:latest
+      mgmt-ipv4: 192.168.100.55
+    PC2:
+      kind: linux
+      image: alpine:latest
+      mgmt-ipv4: 192.168.100.66
+
+  links:
+    - endpoints: ["R01.TEST:eth1", "SW01.L3.01.TEST:eth1"]
+    - endpoints: ["SW01.L3.01.TEST:eth2", "SW02.L3.01.TEST:eth1"]
+    - endpoints: ["SW01.L3.01.TEST:eth3", "SW02.L3.02.TEST:eth1"]
+    - endpoints: ["SW02.L3.01.TEST:eth2", "PC1:eth1"]
+    - endpoints: ["SW02.L3.02.TEST:eth2", "PC2:eth1"]
+
+
