@@ -10,7 +10,7 @@ Group: K3323
 
 Author: Belous Iaroslav Romanovich
 
-Lab: Lab1
+Lab: Lab2
 
 Date of create: 17.10.2024
 
