@@ -1,0 +1,51 @@
+name: lab2
+mgmt:
+  network: static
+  ipv4-subnet: 192.168.100.0/24
+  
+topology:
+  nodes:
+    R01.MSK:
+      kind: vr-ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 192.168.100.11
+      startup-config: /home/y0rikk/Desktop/lab2/configs/MSK.rsc
+
+    R01.FRT:
+      kind: vr-ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 192.168.100.22
+      startup-config: /home/y0rikk/Desktop/lab2/configs/FRT.rsc
+      
+    R01.BRL:
+      kind: vr-ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 192.168.100.33
+      startup-config: /home/y0rikk/Desktop/lab2/configs/BRL.rsc
+      
+    PC1:
+      kind: vr-ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 192.168.100.44
+      startup-config: /home/y0rikk/Desktop/lab2/configs/PC1.rsc
+      
+    PC2:
+      kind: vr-ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 192.168.100.55
+      startup-config: /home/y0rikk/Desktop/lab2/configs/PC2.rsc
+      
+    PC3:
+      kind: vr-ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 192.168.100.66
+      startup-config: /home/y0rikk/Desktop/lab2/configs/PC3.rsc
+      
+   
+  links:
+    - endpoints: ["R01.BRL:eth2", "R01.FRT:eth1"]
+    - endpoints: ["R01.FRT:eth2", "R01.MSK:eth2"]
+    - endpoints: ["R01.MSK:eth1", "R01.BRL:eth1"]
+    - endpoints: ["R01.BRL:eth3", "PC3:eth1"]
+    - endpoints: ["R01.FRT:eth3", "PC2:eth1"]
+    - endpoints: ["R01.MSK:eth3", "PC1:eth1"]
