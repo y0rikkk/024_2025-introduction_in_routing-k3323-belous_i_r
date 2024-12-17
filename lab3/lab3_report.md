@@ -14,7 +14,7 @@ Lab: Lab3
 
 Date of create: 20.11.2024
 
-Date of finished: 
+Date of finished: 11.12.2024
 
 # Лабораторная работa №3 "Эмуляция распределенной корпоративной сети связи, настройка OSPF и MPLS, организация первого EoMPLS"
 
