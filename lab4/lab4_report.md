@@ -14,7 +14,7 @@ Lab: Lab4
 
 Date of create: 14.12.2024
 
-Date of finished: 
+Date of finished: 18.12.2024
 
 # Лабораторная работa №4 "Эмуляция распределенной корпоративной сети связи, настройка iBGP, организация L3VPN, VPLS" #
 
